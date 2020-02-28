@@ -39,7 +39,10 @@ function App() {
 					email: "robert.spari@gmail.com",
 					firstName: "Robert",
 					lastName: "Spari",
-					image: img
+					image: img,
+					mapLink:"https://www.google.at/maps/place/Leftshift+One/@47.0420042,15.4368234,17z/data=!4m12!1m6!3m5!1s0x476e357f4d7aaaab:0xb67d764572d5c121!2sLeftshift+One!8m2!3d47.0420006!4d15.4390174!3m4!1s0x476e357f4d7aaaab:0xb67d764572d5c121!8m2!3d47.0420006!4d15.4390174",
+					facebookLink:"https://facebook.com",
+					linkedInLink:"https://linked.in"
 				}}
 				/>
 			</div>

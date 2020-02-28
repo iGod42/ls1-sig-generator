@@ -4,6 +4,7 @@ import SeparatedItems from "./SeparatedItems"
 import ImageToBase64 from "../../tools/ImageToBase64"
 import ls1 from "../../assets/LS1.png"
 import {EmphasisText, Link, LowEmphasisText, NormalText, Separator} from "./TextTypes"
+import SocialButtons from "./SocialButtons"
 
 type Props = {
 	data: SignatureData
@@ -18,11 +19,11 @@ const HtmlSignature = ({data}: Props) => {
 	
 	return <table style={{
 		borderCollapse: "collapse"
-	}}>
+	}} cellPadding={0} cellSpacing={0}>
 		<tbody>
 		<tr>
 			<td style={{
-				borderRight: "2px solid #00FFC8",
+				//borderRight: "3px solid #00FFC8",
 				paddingRight: "9px"
 			}}>
 				{data.image ?
@@ -31,18 +32,22 @@ const HtmlSignature = ({data}: Props) => {
 						src={data.image}
 						alt="Portrait"
 						style={{borderRadius: "50%"}}
-					
 					/> :
 					<img
 						height={40}
 						src={defaultImage}
 						alt="LS1 Logo"
-						style={{borderRadius: "0"}}
+						style={{borderRadius: "0",display:"block"}}
 					/>
 				}
 			</td>
+			<td>
+				<div>
+					<SocialButtons sigData={data}/>
+				</div>
+			</td>
 			<td style={{paddingLeft: "8px"}}>
-				<table>
+				<table cellPadding={0} cellSpacing={0}>
 					<tbody>
 					<SeparatedItems separator={<span> </span>}>
 						{data.titleBeforeName && <LowEmphasisText content={data.titleBeforeName}/>}

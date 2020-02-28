@@ -31,6 +31,5 @@ export const Link = ({children, href}: LinkProps) => <a style={{
 
 export const Separator = () => <span style={{
 	...baseTxtStyles,
-	fontWeight: "bold",
 	color: "#00FFC8"
 }}> | </span>

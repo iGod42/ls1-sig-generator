@@ -7,5 +7,8 @@ export interface SignatureData {
 	email: string,
 	mobile?: string,
 	landLine?: string,
-	image?: string
+	image?: string,
+	mapLink?: string,
+	facebookLink?: string,
+	linkedInLink?: string
 }
