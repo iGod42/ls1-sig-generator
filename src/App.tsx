@@ -1,9 +1,13 @@
 import React, {useEffect, useRef, useState} from "react"
 import HtmlSignature from "./components/HtmlSignature"
 import PopupBubble from "./components/PopupBubble"
+import ImageEditor from "./components/ImageEditor"
+import FileInput from "./components/FileInput"
 
 function App() {
 	const signature = useRef<HTMLDivElement>(null)
+	const [img, setImg] = useState<string>("")
+	const [imgPath, setImgPath] = useState<string>("")
 	const [showPopup, setShowPopup] = useState<boolean>(false)
 	
 	const copyShit = (e: any) => {
@@ -34,12 +38,16 @@ function App() {
 					titleAfterName: "BSc",
 					email: "robert.spari@gmail.com",
 					firstName: "Robert",
-					lastName: "Spari"
+					lastName: "Spari",
+					image: img
 				}}
 				/>
 			</div>
 			<button onClick={doCopy}>Copy</button>
 			{showPopup && <PopupBubble text="Copied" onTimeout={() => setShowPopup(false)}/>}
+			
+			<FileInput onFileSelected={(dataUrl) => setImgPath(dataUrl)}/>
+			<ImageEditor image={imgPath} imageSaved={setImg}/>
 		</div>
 	)
 }

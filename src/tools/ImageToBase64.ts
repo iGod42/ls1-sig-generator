@@ -1,6 +1,6 @@
 export default async function toDataURL(src: string, outputFormat?: "image/jpg" | "image/png"): Promise<string> {
 	return new Promise<string>((resolve) => {
-		var img: HTMLImageElement = new Image()
+		const img: HTMLImageElement = new Image()
 		img.crossOrigin = "Anonymous"
 		img.onload = function () {
 			const canvas: HTMLCanvasElement = document.createElement("CANVAS") as HTMLCanvasElement

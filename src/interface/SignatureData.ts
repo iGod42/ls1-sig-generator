@@ -6,5 +6,6 @@ export interface SignatureData {
 	jobTitle?: string,
 	email: string,
 	mobile?: string,
-	landLine?: string
+	landLine?: string,
+	image?: string
 }
