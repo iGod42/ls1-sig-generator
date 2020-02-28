@@ -32,7 +32,7 @@ const FileInput = ({labelText, submitText, onFileSelected}: Props) => {
 
 FileInput.defaultProps = {
 	labelText: "Choose File: ",
-	submitText: "Open File"
+	submitText: "Open Selected"
 }
 
 export default FileInput

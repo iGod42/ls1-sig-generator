@@ -51,7 +51,7 @@ const ImageEditor = ({image, imageSaved}: Props) => {
 				<label>{rotate - 180}°</label>
 			</div>
 			<button onClick={reset}>Reset</button>
-			<button onClick={save}>Save</button>
+			<button onClick={save}>Use Image</button>
 		</div>
 	
 	</div>
