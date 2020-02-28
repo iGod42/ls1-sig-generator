@@ -1,0 +1,9 @@
+.imageEditorWrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.imageEditorWrapper > * {
+    margin: 1em;
+}

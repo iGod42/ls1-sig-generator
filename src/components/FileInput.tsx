@@ -13,6 +13,7 @@ const FileInput = ({labelText, submitText, onFileSelected}: Props) => {
 	const handleSubmit: FormEventHandler = (event) => {
 		event.preventDefault()
 		const file = (fileInput?.current as any)?.files[0] as File
+		if (!file) return
 		console.log(file)
 		const reader = new FileReader()
 		reader.onload = () => {
@@ -32,7 +33,7 @@ const FileInput = ({labelText, submitText, onFileSelected}: Props) => {
 
 FileInput.defaultProps = {
 	labelText: "Choose File: ",
-	submitText: "Choose"
+	submitText: "Open File"
 }
 
 export default FileInput

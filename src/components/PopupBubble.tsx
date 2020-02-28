@@ -10,7 +10,7 @@ const PopupBubble = ({text, onTimeout}: Props) => {
 		return () => clearTimeout(timer)
 	}, [onTimeout])
 	
-	return <div>{text}</div>
+	return <div style={{zIndex: 1000, position: "absolute", backgroundColor:"lightgrey"}}>{text}</div>
 }
 
 export default PopupBubble

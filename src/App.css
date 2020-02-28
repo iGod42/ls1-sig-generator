@@ -1,0 +1,27 @@
+.inputSection {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inputSection > * {
+    margin: 0 1em 1em 0;
+}
+
+.sigDisplay {
+    margin-top: 2em;
+    user-select: none;
+}
+
+.copyControl {
+    display: flow;
+}
+
+button {
+    padding: 0.3em;
+    font-size: small;
+    margin: 0 0.5em 0.5em 0;
+}
+
+h1 {
+    font-size: large;
+}

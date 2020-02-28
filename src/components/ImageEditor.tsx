@@ -1,6 +1,8 @@
 import React, {useRef, useState} from "react"
 import AvatarEditor from "react-avatar-editor"
 
+import "./ImageEditor.css"
+
 const DEF_SCALE = 100
 const DEF_ROTATE = 180
 
@@ -25,7 +27,7 @@ const ImageEditor = ({image, imageSaved}: Props) => {
 		imageSaved((editor?.current as any)?.getImageScaledToCanvas().toDataURL())
 	}
 	
-	return <div>
+	return <div className="imageEditorWrapper">
 		<AvatarEditor
 			image={image}
 			width={250}
@@ -37,19 +39,22 @@ const ImageEditor = ({image, imageSaved}: Props) => {
 			ref={editor}
 		/>
 		<div>
-			<label>Zoom</label>
-			<input type="range" min="10" max="500" value={scale} className="slider" id="myRange"
-				   onChange={(e) => setScale(Number.parseInt(e.target.value))}/>
-			<label>{scale / 100}x</label>
+			<div>
+				<label>Zoom</label>
+				<input type="range" min="10" max="500" value={scale} className="slider" id="myRange"
+					   onChange={(e) => setScale(Number.parseInt(e.target.value))}/>
+				<label>{scale / 100}x</label>
+			</div>
+			<div>
+				<label>Rotate</label>
+				<input type="range" min="90" max="270" value={rotate} className="slider" id="myRange"
+					   onChange={(e) => setRotate(Number.parseInt(e.target.value))}/>
+				<label>{rotate - 180}°</label>
+			</div>
+			<button onClick={reset}>Reset</button>
+			<button onClick={save}>Save</button>
 		</div>
-		<div>
-			<label>Rotate</label>
-			<input type="range" min="90" max="270" value={rotate} className="slider" id="myRange"
-				   onChange={(e) => setRotate(Number.parseInt(e.target.value))}/>
-			<label>{rotate - 180}°</label>
-		</div>
-		<button onClick={reset}>Reset</button>
-		<button onClick={save}>Save</button>
+	
 	</div>
 }
 
