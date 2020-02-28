@@ -14,7 +14,6 @@ const FileInput = ({labelText, submitText, onFileSelected}: Props) => {
 		event.preventDefault()
 		const file = (fileInput?.current as any)?.files[0] as File
 		if (!file) return
-		console.log(file)
 		const reader = new FileReader()
 		reader.onload = () => {
 			onFileSelected(reader.result as string)

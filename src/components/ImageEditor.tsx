@@ -23,7 +23,6 @@ const ImageEditor = ({image, imageSaved}: Props) => {
 	}
 	
 	const save = () => {
-		console.log((editor?.current as any)?.getImageScaledToCanvas().toDataURL())
 		imageSaved((editor?.current as any)?.getImageScaledToCanvas().toDataURL())
 	}
 	
