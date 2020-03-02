@@ -23,14 +23,34 @@ const ImageEditor = ({image, imageSaved}: Props) => {
 	}
 	
 	const save = () => {
-		imageSaved((editor?.current as any)?.getImageScaledToCanvas().toDataURL())
+		const canvas = (editor?.current as any)?.getImageScaledToCanvas()
+		if (!canvas) return
+		
+		const ctx = canvas.getContext("2d")
+		
+		// desaturate
+		ctx.globalCompositeOperation = "saturation"
+		ctx.fillStyle = "hsl(0," +7 + "%, 50%)"
+		ctx.fillRect(0, 0, canvas.width, canvas.height)
+		
+		// give a light blue tint
+		ctx.globalCompositeOperation = "hue";
+		ctx.fillStyle = "hsl(" + 210 + ",1%, 50%)";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		
+		//reset settings
+		ctx.globalCompositeOperation = "source-over";
+		
+		imageSaved(canvas.toDataURL())
+		
+		//imageSaved((editor?.current as any)?.getImageScaledToCanvas().toDataURL())
 	}
 	
 	return <div className="imageEditorWrapper">
 		<AvatarEditor
 			image={image}
-			width={250}
-			height={250}
+			width={200}
+			height={200}
 			border={10}
 			scale={scale / 100}
 			rotate={rotate - 180}
