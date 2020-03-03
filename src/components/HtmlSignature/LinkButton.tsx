@@ -12,12 +12,12 @@ type Props = {
 	alt: string
 } & LinkProps
 
-const LinkButton = ({link, image, alt}: Props) =>
-	<a href={link} target="_blank" rel="noopener noreferrer">
+const LinkButton = ({ link, image, alt }: Props) =>
+	<a style={{ padding: "1px" }} href={link} target="_blank" rel="noopener noreferrer">
 		<img
 			src={image} alt={alt}
-			style={{display: "block"}}/> </a>
+			style={{ display: "block" }} /> </a>
 
-export const FacebookButton = ({link}: LinkProps) => <LinkButton image={fb} alt="FB" link={link}/>
-export const LinkedInButton = ({link}: LinkProps) => <LinkButton image={linked_in} alt="IN" link={link}/>
-export const MapButton = ({link}: LinkProps) => <LinkButton image={map} alt="Map" link={link}/>
+export const FacebookButton = ({ link }: LinkProps) => <LinkButton image={fb} alt="FB" link={link} />
+export const LinkedInButton = ({ link }: LinkProps) => <LinkButton image={linked_in} alt="IN" link={link} />
+export const MapButton = ({ link }: LinkProps) => <LinkButton image={map} alt="Map" link={link} />

@@ -1,6 +1,8 @@
 import React, {ReactNode} from "react"
 import {SignatureData} from "../../interface/SignatureData"
 import {FacebookButton, MapButton, LinkedInButton} from "./LinkButton"
+import Td from "./Td"
+import Table from "./Table"
 
 type Props = {
 	sigData: SignatureData,
@@ -13,20 +15,20 @@ const SocialButtons = ({sigData, horizontal}: Props) => {
 		(sigData.facebookLink && ["facebookButton", <FacebookButton link={sigData.facebookLink}/>]),
 		(sigData.linkedInLink && ["linkedInButton", <LinkedInButton link={sigData.linkedInLink}/>])
 	].filter(a => a) as [string, ReactNode][]
-	return <React.Fragment>{!!buttons.length && <table style={{borderCollapse: "collapse"}}>
+	return <React.Fragment>{!!buttons.length && <Table>
 		{horizontal ?
 			<tbody>
 			<tr>
-				{buttons.map(button => <td key={button[0]}>{button[1]}</td>)}
+				{buttons.map(button => <Td key={button[0]}>{button[1]}</Td>)}
 			</tr>
 			</tbody>
 			: <tbody>
 			{buttons.map(button => <tr key={button[0]}>
-				<td>{button[1]}</td>
+				<Td style={{padding:"1px"}}>{button[1]}</Td>
 			</tr>)}
 			</tbody>
 		}
-		</table>}
+		</Table>}
 	</React.Fragment>
 }
 

@@ -1,4 +1,5 @@
 import React, {ReactNode} from "react"
+import Td from "./Td"
 
 type Props = {
 	children: ReactNode[] | ReactNode,
@@ -7,7 +8,7 @@ type Props = {
 
 const SeparatedItems = ({children, separator}: Props) => {
 	return <tr>
-		<td style={{padding: "0"}}>
+		<Td>
 			{(children instanceof Array) ? <span>
 			{(children as ReactNode[])
 				.filter(a => a)
@@ -16,7 +17,7 @@ const SeparatedItems = ({children, separator}: Props) => {
 					{index < array.length - 1 ? separator : null}
 				</React.Fragment>)}
 			</span> : children}
-		</td>
+		</Td>
 	</tr>
 }
 

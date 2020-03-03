@@ -18,7 +18,7 @@ export const EmphasisText = ({content}: TextProps) => <span style={{
 }}>{content}</span>
 
 export const LowEmphasisText = ({content}: TextProps) => <span
-	style={{...baseTxtStyles, fontSize: "7pt"}}>{content}</span>
+	style={{...baseTxtStyles, fontSize: "6pt"}}>{content}</span>
 
 type LinkProps = { children: ReactNode, href: string }
 export const Link = ({children, href}: LinkProps) => <a style={{
