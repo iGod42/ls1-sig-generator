@@ -25,11 +25,13 @@ export const Link = ({children, href}: LinkProps) => <a style={{
 	...baseTxtStyles,
 	color: "#233246",
 	fontWeight: "bold",
-	textDecoration: "none",
 	cursor: "pointer"
-}} href={href}>{children}</a>
+}} href={href}
+ref={(node) => node?.style?.setProperty("text-decoration", "none", "important") }
+>{children}</a>
 
 export const Separator = () => <span style={{
 	...baseTxtStyles,
-	color: "#00FFC8"
+	color: "#00FFC8",
+	fontWeight: "bold"
 }}> | </span>

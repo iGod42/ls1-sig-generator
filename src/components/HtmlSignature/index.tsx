@@ -52,7 +52,7 @@ const HtmlSignature = ({ data }: Props) => {
 							<SeparatedItems separator={<NormalText content={" "} />}>
 								{data.titleBeforeName && <LowEmphasisText content={data.titleBeforeName} />}
 								<EmphasisText content={data.firstName} />
-								<EmphasisText content={data.lastName} />
+								<NormalText content={data.lastName} />
 								{data.titleAfterName && <LowEmphasisText content={data.titleAfterName} />}
 							</SeparatedItems>
 
@@ -64,7 +64,7 @@ const HtmlSignature = ({ data }: Props) => {
 							<SeparatedItems separator={<Separator />}>
 								{data.mobile && <NormalText content={data.mobile} />}
 								{data.landLine && <NormalText content={data.landLine} />}
-								<NormalText content={data.email} />
+								{data.email && <NormalText content={data.email} />}
 								<Link href={"https://www.leftshift.one"}>www.leftshift.one</Link>
 							</SeparatedItems>
 						</tbody>
