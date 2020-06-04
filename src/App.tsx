@@ -1,8 +1,6 @@
 import React, {useEffect, useRef, useState} from "react"
 import HtmlSignature from "./components/HtmlSignature"
 import PopupBubble from "./components/PopupBubble"
-import ImageEditor from "./components/ImageEditor"
-import FileInput from "./components/FileInput"
 import SigDataInput from "./components/SigDataInput"
 import {SignatureData} from "./interface/SignatureData"
 import defaultData from "./DefaultData"
@@ -11,7 +9,6 @@ import "./App.css"
 
 function App() {
 	const signature = useRef<HTMLDivElement>(null)
-	const [imgPath, setImgPath] = useState<string>("")
 	const [showPopup, setShowPopup] = useState<boolean>(false)
 	const [data, setData] = useState<SignatureData>(defaultData)
 	
@@ -37,12 +34,12 @@ function App() {
 					<h1>Your Data</h1>
 					<SigDataInput data={data} dataChanged={setData}/>
 				</div>
-				<div>
+			{/* 	<div>
 					<h1>Choose an image</h1>
 					<FileInput onFileSelected={(dataUrl) => setImgPath(dataUrl)}/>
 					{imgPath &&
 										<ImageEditor image={imgPath} imageSaved={(newImg) => setData({...data, image: newImg})}/>}
-				</div>
+				</div> */}
 			</div>
 			
 			<div>
