@@ -5,7 +5,7 @@ type Props = {
     style: CSSProperties
 }
 
-const Table = ({ style, children, ...props }: Props) => <table style={{
+const Table = ({ style, children, ...props }: Props) => <table role="presentation" cellSpacing="0" cellPadding="0" style={{
     borderCollapse: "collapse",
     ...style
 }} {...props}>{children}</table>

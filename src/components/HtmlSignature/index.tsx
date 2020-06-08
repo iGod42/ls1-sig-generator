@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, ReactNode, CSSProperties } from "react"
 import { SignatureData } from "../../interface/SignatureData"
 import SeparatedItems from "./SeparatedItems"
 import ImageToBase64 from "../../tools/ImageToBase64"
@@ -20,33 +20,39 @@ const HtmlSignature = ({ data }: Props) => {
 		ImageToBase64(ls1Logo).then(seTdefaultImage)
 	}, [])
 
-	return <table>
-		<tr><td>
-			<table>
-				<tr><td><img
-					height={16}
+	const Image = ({ style, src, alt }: { style?: CSSProperties, src: string, alt: string }) =>
+		<tr>
+			<Td align="right" style={{/* lineHeight: 0,*/ paddingBottom: 12, ...style }}>
+				<img
+					height={13}
+					src={src}
+					alt={alt}
+					style={{ borderRadius: "0", display: "block", marginLeft: "auto" }}
+				/>
+			</Td>
+		</tr>
+	return <Table>
+		<tr><Td style={{
+			borderRight: "solid #d6d6d6 1px",
+			paddingRight: "12px",
+			verticalAlign: "top",
+		}}>
+			<Table>
+				<Image style={{ paddingBottom: 10 }}
 					src="http://localhost:3000/ls1_logo.png"
 					alt="LS1 Logo"
-					style={{ borderRadius: "0", display: "block" }}
 				/>
-				</td></tr>
-<tr><td>
-					<img
-						height={16}
-						src="http://localhost:3000/mail.png"
-						alt="Email Me"
-						style={{ borderRadius: "0", display: "block" }}
-					/></td></tr>
-					<tr><td>
-					<img
-						height={16}
-						src="http://localhost:3000/linkedin.png"
-						alt="LinkedIN"
-						style={{ borderRadius: "0", display: "block" }}
-					/></td></tr>
-			</table>
-		</td></tr>
-	</table>
+				<Image
+					style={{ paddingBottom: 9 }}
+					src="http://localhost:3000/mail.png"
+					alt="Email Me" />
+				<Image style={{ paddingBottom: 0 }}
+					src="http://localhost:3000/linkedin.png"
+					alt="LinkedIN"
+				/>
+			</Table>
+		</Td></tr>
+	</Table>
 
 	return <Table>
 		<tbody>
