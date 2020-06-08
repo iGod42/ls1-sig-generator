@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react"
 import { SignatureData } from "../../interface/SignatureData"
 import SeparatedItems from "./SeparatedItems"
 import ImageToBase64 from "../../tools/ImageToBase64"
-import ls1 from "../../assets/LS1.png"
+import ls1Logo from "../../assets/ls1_logo.png"
+import linkedInLogo from "../../assets/linkedin.png"
+import mailIcon from "../../assets/mail.png"
 import { EmphasisText, Link, LowEmphasisText, NormalText, Separator } from "./TextTypes"
-import SocialButtons from "./SocialButtons"
 import Td from "./Td"
 import Table from "./Table"
 
@@ -16,8 +17,36 @@ const HtmlSignature = ({ data }: Props) => {
 	const [defaultImage, seTdefaultImage] = useState("")
 
 	useEffect(() => {
-		ImageToBase64(ls1).then(seTdefaultImage)
+		ImageToBase64(ls1Logo).then(seTdefaultImage)
 	}, [])
+
+	return <table>
+		<tr><td>
+			<table>
+				<tr><td><img
+					height={16}
+					src="http://localhost:3000/ls1_logo.png"
+					alt="LS1 Logo"
+					style={{ borderRadius: "0", display: "block" }}
+				/>
+				</td></tr>
+<tr><td>
+					<img
+						height={16}
+						src="http://localhost:3000/mail.png"
+						alt="Email Me"
+						style={{ borderRadius: "0", display: "block" }}
+					/></td></tr>
+					<tr><td>
+					<img
+						height={16}
+						src="http://localhost:3000/linkedin.png"
+						alt="LinkedIN"
+						style={{ borderRadius: "0", display: "block" }}
+					/></td></tr>
+			</table>
+		</td></tr>
+	</table>
 
 	return <Table>
 		<tbody>
@@ -26,25 +55,26 @@ const HtmlSignature = ({ data }: Props) => {
 					//borderRight: "3px solid #00FFC8",
 					paddingRight: "9px"
 				}}>
-					{data.image ?
-						<img
-							height={64}
-							src={data.image}
-							alt="Portrait"
-							style={{ borderRadius: "50%" }}
-						/> :
-						<img
-							height={40}
-							src={defaultImage}
-							alt="LS1 Logo"
-							style={{ borderRadius: "0", display: "block" }}
-						/>
-					}
-				</Td>
-				<Td>
-					<div>
-						<SocialButtons sigData={data} />
-					</div>
+					<img
+						height={16}
+						width={26}
+						src={ls1Logo}
+						alt="LS1 Logo"
+						style={{ width: 26, height: 16 }}
+					/>
+
+					<img
+						height={16}
+						src={mailIcon}
+						alt="Email Me"
+						style={{ borderRadius: "0", display: "block" }}
+					/>
+					<img
+						height={16}
+						src={linkedInLogo}
+						alt="LinkedIN"
+						style={{ borderRadius: "0", display: "block" }}
+					/>
 				</Td>
 				<Td style={{ paddingLeft: "8px" }}>
 					<Table>

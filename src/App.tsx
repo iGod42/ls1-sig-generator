@@ -6,7 +6,7 @@ import FileInput from "./components/FileInput"
 import SigDataInput from "./components/SigDataInput"
 import {SignatureData} from "./interface/SignatureData"
 import defaultData from "./DefaultData"
-
+import {HTMLGenerator} from './service/HTMLGenerator'
 import "./App.css"
 
 function App() {
@@ -16,7 +16,9 @@ function App() {
 	const [data, setData] = useState<SignatureData>(defaultData)
 	
 	const copyShit = (e: any) => {
-		e.clipboardData.setData("text/html", signature?.current?.innerHTML)
+		const html = HTMLGenerator.getHtml(signature?.current?.innerHTML)
+		console.log(html)
+		e.clipboardData.setData("text/html", html)
 		e.preventDefault() // default behaviour is to copy any selected content
 	}
 	
