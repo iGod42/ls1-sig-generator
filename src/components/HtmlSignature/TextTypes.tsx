@@ -2,10 +2,10 @@ import React, {CSSProperties, ReactNode} from "react"
 
 const baseTxtStyles: CSSProperties = {
 	fontFamily: "Arial",
-	fontSize: "12px",
+	fontSize: "10pt",
 	textDecoration: "none",
 	lineHeight: "150%",
-	color: "#455156"
+	color: "#333333"
 }
 type TextProps = {
 	content: ReactNode
@@ -19,7 +19,7 @@ export const EmphasisText = ({content}: TextProps) => <span style={{
 }}>{content}</span>
 
 export const LowEmphasisText = ({content}: TextProps) => <span
-	style={{...baseTxtStyles, fontSize: "8px"}}>{content}</span>
+	style={{...baseTxtStyles, fontSize: "7pt"}}>{content}</span>
 
 type LinkProps = { children: ReactNode, href: string }
 export const Link = ({children, href}: LinkProps) => <a style={{
