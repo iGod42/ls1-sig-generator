@@ -8,6 +8,7 @@ import mailIcon from "../../assets/mail.png"
 import { EmphasisText, Link, LowEmphasisText, NormalText, Separator } from "./TextTypes"
 import Td from "./Td"
 import Table from "./Table"
+import { LinkButton } from './LinkButton'
 
 type Props = {
 	data: SignatureData
@@ -20,38 +21,63 @@ const HtmlSignature = ({ data }: Props) => {
 		ImageToBase64(ls1Logo).then(seTdefaultImage)
 	}, [])
 
-	const Image = ({ style, src, alt }: { style?: CSSProperties, src: string, alt: string }) =>
+
+	const LinkButton = ({ link, src, alt, style }: { link: string, style?: CSSProperties, src: string, alt: string }) =>
 		<tr>
 			<Td align="right" style={{/* lineHeight: 0,*/ paddingBottom: 12, ...style }}>
-				<img
-					height={13}
-					src={src}
-					alt={alt}
-					style={{ borderRadius: "0", display: "block", marginLeft: "auto" }}
-				/>
+				<a style={{ padding: "1px" }} href={link} target="_blank" rel="noopener noreferrer">
+					<img
+						height={13}
+						src={src}
+						alt={alt}
+						style={{ borderRadius: "0", display: "block", marginLeft: "auto" }}
+					/></a>
 			</Td>
 		</tr>
+
+	const Text = ({ children, style }: { children: ReactNode, style?: CSSProperties }) => <tr><td style={{ paddingBottom: 2, ...style }}>{children}</td></tr>
 	return <Table>
-		<tr><Td style={{
-			borderRight: "solid #d6d6d6 1px",
-			paddingRight: "12px",
-			verticalAlign: "top",
-		}}>
-			<Table>
-				<Image style={{ paddingBottom: 10 }}
-					src="http://localhost:3000/ls1_logo.png"
-					alt="LS1 Logo"
-				/>
-				<Image
-					style={{ paddingBottom: 9 }}
-					src="http://localhost:3000/mail.png"
-					alt="Email Me" />
-				<Image style={{ paddingBottom: 0 }}
-					src="http://localhost:3000/linkedin.png"
-					alt="LinkedIN"
-				/>
-			</Table>
-		</Td></tr>
+		<tbody>
+			<tr>
+				<Td style={{
+					borderRight: "solid #d6d6d6 1px",
+					paddingRight: "12px",
+					verticalAlign: "top",
+				}}>
+					<Table style={{ paddingTop: "1px" }}>
+						<tbody>
+							<LinkButton style={{ paddingTop: 3, paddingBottom: 11 }}
+								link="https://www.leftshiftone.com/"
+								src="https://resource.leftshift.one/ls1_logo.png"
+								alt="LS1 Logo"
+							/>
+							<LinkButton
+								link={`mailto:${data.email}`}
+								style={{ paddingBottom: 10 }}
+								src="https://resource.leftshift.one/mail.png"
+								alt="Email Me" />
+							<LinkButton style={{ paddingBottom: 0 }}
+								link={data.linkedInLink}
+								src="https://resource.leftshift.one/linkedin.png"
+								alt="LinkedIN"
+							/>
+						</tbody>
+					</Table>
+				</Td>
+				<Td style={{ padding: 0, paddingLeft: 12 }}>
+					<Table style={{ paddingTop: "0px" }}>
+						<tbody>
+							<Text><EmphasisText content={[[data.titleBeforeName, data.firstName, data.lastName].filter(a => a).join(" "), data.titleAfterName].filter(a => a).join(", ")} /></Text>
+							<Text><EmphasisText content={data.jobTitle} /></Text>
+							<Text><NormalText content={data.mobile} /></Text>
+							<Text><NormalText content={"Leftshift One Software GmbH"} /></Text>
+							<Text><NormalText content={"Am Innovationspark 10, A - 8020 Graz"} /></Text>
+							<Text style={{ paddingTop: 8 }}><LowEmphasisText content={"FN: 475594d FB-Gericht: Graz"} /></Text>
+						</tbody>
+					</Table>
+				</Td>
+			</tr>
+		</tbody>
 	</Table>
 
 	return <Table>

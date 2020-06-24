@@ -10,5 +10,5 @@ export interface SignatureData {
 	image?: string,
 	mapLink?: string,
 	facebookLink?: string,
-	linkedInLink?: string
+	linkedInLink: string
 }

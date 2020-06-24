@@ -7,9 +7,9 @@ type Props = {
 }
 
 const Td = ({ style, children, align, ...props }: Props) => (
-    <td align={align || "left"} style={{
+    <td align={align || "left"} valign="top" style={{
         whiteSpace: "nowrap",
-        padding: "1px",
+        padding: "0 1px",
         fontSize: "0pt",
         ...style
     }} {...props}>{children}</td>)

@@ -39,12 +39,12 @@ function App() {
 					<h1>Your Data</h1>
 					<SigDataInput data={data} dataChanged={setData}/>
 				</div>
-				<div>
+				{/* <div>
 					<h1>Choose an image</h1>
 					<FileInput onFileSelected={(dataUrl) => setImgPath(dataUrl)}/>
 					{imgPath &&
 										<ImageEditor image={imgPath} imageSaved={(newImg) => setData({...data, image: newImg})}/>}
-				</div>
+				</div> */}
 			</div>
 			
 			<div>

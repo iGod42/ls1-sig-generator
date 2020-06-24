@@ -12,7 +12,7 @@ type Props = {
 	alt: string
 } & LinkProps
 
-const LinkButton = ({ link, image, alt }: Props) =>
+export const LinkButton = ({ link, image, alt }: Props) =>
 	<a style={{ padding: "1px" }} href={link} target="_blank" rel="noopener noreferrer">
 		<img
 			src={image} alt={alt}
