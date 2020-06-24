@@ -7,8 +7,7 @@ import linkedInLogo from "../../assets/linkedin.png"
 import mailIcon from "../../assets/mail.png"
 import { EmphasisText, Link, LowEmphasisText, NormalText, Separator } from "./TextTypes"
 import Td from "./Td"
-import Table from "./Table"
-import { LinkButton } from './LinkButton'
+import Table from "./Table"	
 
 type Props = {
 	data: SignatureData
@@ -30,8 +29,8 @@ const HtmlSignature = ({ data }: Props) => {
 						height={13}
 						src={src}
 						alt={alt}
-						style={{ borderRadius: "0", display: "block", marginLeft: "auto" }}
-					/></a>
+					/>
+					</a>
 			</Td>
 		</tr>
 
