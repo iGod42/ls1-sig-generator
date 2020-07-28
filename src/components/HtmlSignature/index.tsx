@@ -29,6 +29,7 @@ const HtmlSignature = ({ data }: Props) => {
 						height={13}
 						src={src}
 						alt={alt}
+						
 					/>
 					</a>
 			</Td>
@@ -45,7 +46,7 @@ const HtmlSignature = ({ data }: Props) => {
 				}}>
 					<Table style={{ paddingTop: "1px" }}>
 						<tbody>
-							<LinkButton style={{ paddingTop: 3, paddingBottom: 11 }}
+							<LinkButton style={{ paddingTop: 2, paddingBottom: 11 }}
 								link="https://www.leftshiftone.com/"
 								src="https://resource.leftshift.one/ls1_logo.png"
 								alt="LS1 Logo"
@@ -67,8 +68,8 @@ const HtmlSignature = ({ data }: Props) => {
 					<Table style={{ paddingTop: "0px" }}>
 						<tbody>
 							<Text><EmphasisText content={[[data.titleBeforeName, data.firstName, data.lastName].filter(a => a).join(" "), data.titleAfterName].filter(a => a).join(", ")} /></Text>
-							<Text><EmphasisText content={data.jobTitle} /></Text>
-							<Text><NormalText content={data.mobile} /></Text>
+							{data.jobTitle && <Text><EmphasisText content={data.jobTitle} /></Text>}
+							{data.mobile && <Text><NormalText content={data.mobile} /></Text>}
 							<Text><NormalText content={"Leftshift One Software GmbH"} /></Text>
 							<Text><NormalText content={"Am Innovationspark 10, A - 8020 Graz"} /></Text>
 							<Text style={{ paddingTop: 8 }}><LowEmphasisText content={"FN: 475594d FB-Gericht: Graz"} /></Text>

@@ -28,8 +28,8 @@ const SigDataInput = (props: Props) => {
 		<InputByKey {...props} objKey={"jobTitle"} label="Job Title"/>
 		<InputByKey {...props} objKey={"mobile"} label="Phone number"/>
 		<InputByKey {...props} objKey={"email"} label="Email"/>
-		<InputByKey {...props} objKey={"mapLink"} label={"Map link"} disabled/>
-		<InputByKey {...props} objKey={"facebookLink"} label={"Facebook link"} disabled/>
+		{/* <InputByKey {...props} objKey={"mapLink"} label={"Map link"} disabled/> */}
+		{/* <InputByKey {...props} objKey={"facebookLink"} label={"Facebook link"} disabled/> */}
 		<InputByKey {...props} objKey={"linkedInLink"} label={"LinkedIn link"} note="Use your own if you want to."/>
 	</div>
 }
