@@ -1,3 +1,5 @@
+import { Address } from "../Addresses";
+
 export interface SignatureData {
 	titleBeforeName?: string
 	firstName: string,
@@ -10,5 +12,6 @@ export interface SignatureData {
 	image?: string,
 	mapLink?: string,
 	facebookLink?: string,
-	linkedInLink: string
+	linkedInLink: string,
+	addressKey: string
 }

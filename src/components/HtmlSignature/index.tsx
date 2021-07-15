@@ -8,6 +8,7 @@ import mailIcon from "../../assets/mail.png"
 import { EmphasisText, Link, LowEmphasisText, NormalText, Separator } from "./TextTypes"
 import Td from "./Td"
 import Table from "./Table"	
+import { getAddress } from "../../Addresses"
 
 type Props = {
 	data: SignatureData
@@ -36,6 +37,10 @@ const HtmlSignature = ({ data }: Props) => {
 		</tr>
 
 	const Text = ({ children, style }: { children: ReactNode, style?: CSSProperties }) => <tr><td style={{ paddingBottom: 2, ...style }}>{children}</td></tr>
+	
+	const addr = getAddress(data.addressKey)
+	if(!addr) throw new Error('invalid address')
+	
 	return <Table>
 		<tbody>
 			<tr>
@@ -71,7 +76,7 @@ const HtmlSignature = ({ data }: Props) => {
 							{data.jobTitle && <Text><EmphasisText content={data.jobTitle} /></Text>}
 							{data.mobile && <Text><NormalText content={data.mobile} /></Text>}
 							<Text><NormalText content={"Leftshift One Software GmbH"} /></Text>
-							<Text><NormalText content={"Am Innovationspark 10, A - 8020 Graz"} /></Text>
+							<Text><NormalText content={addr.address} /></Text>
 							<Text style={{ paddingTop: 8 }}><LowEmphasisText content={"FN: 475594d FB-Gericht: Graz"} /></Text>
 						</tbody>
 					</Table>
