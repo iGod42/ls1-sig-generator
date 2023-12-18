@@ -7,7 +7,7 @@ export type Address = {
 
 export const Addresses: Address[] = [
     { id: "HQ", address: "Herrengasse 3, A-8010 Graz", name: "Herrengasse" },
-    { id: "FK", address: "Triester Straße 210, A-8073 Feldkirchen bei Graz", name: "Feldkirchen" },
+    { id: "UC", address: "Schubertstraße 6a, A-8010 Graz", name: "Unicorn"},
     { id: "MUC", address: "Maximilianstr. 35a, D - 80359 München", name: "München" }
 ]
 
